@@ -8,14 +8,16 @@ from django.template import RequestContext
 from datetime import datetime
 
 YOUR_INFO = {
-    'name' : 'Your name',
-    'bio' : 'What\'s your deal? What do you do?',
-    'email' : '', # Leave blank if you'd prefer not to share your email with other conference attendees
-    'twitter_username' : 'tweettweet', # No @ symbol, just the handle.
-    'github_username' : "fetchpush", 
-    'headshot_url' : '', # Link to your GitHub, Twitter, or Gravatar profile image.
+    'name': 'Travis Swicegood',
+    'bio': ("I'm the Campus Director for The Iron Yard in ATX and a sucker "
+            "limited edition tshirts!"),
+    'email': 'travis@domain51.com',
+    'twitter_username': 'tswicegood',
+    'github_username': "tswicegood",
+    'headshot_url': \
+        'https://s.gravatar.com/avatar/9e37f9dc53378c04bab413d352994b79?s=320',
 }
-    
+
 def home(request):
     assert isinstance(request, HttpRequest)
     return render(
@@ -23,7 +25,7 @@ def home(request):
         'app/base.html',
         context_instance = RequestContext(request,
             {
-                'attendee' : YOUR_INFO,    
+                'attendee' : YOUR_INFO,
                 'year': datetime.now().year,
             })
     )
